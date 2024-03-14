@@ -1,0 +1,21 @@
+RANK,REP_FIRST_NAME,REP_LAST_NAME,DOMESTIC_REVENUE,REP_REGION,REV_PERC
+1,PAUL           ,KANE                ,8407.79,1,23.85
+2,MICHAEL        ,TRACY               ,8204.26,2,53.92
+3,JAMES          ,MILES               ,8048.28,1,58.94
+4,LYDIA          ,ADAMS               ,7935.03,2,60.99
+5,LAURA          ,IRWIN               ,7623.59,1,67.2
+6,ERICA          ,FREDRICKSON         ,6518.61,1,64.19
+7,SUSAN          ,CONTE               ,5791.99,3,32.84
+8,MICHAEL        ,FRANK               ,5161.37,3,62.54
+9,LAURA          ,DOBSON              ,4903.26,2,63.35
+10,EVAN           ,CONTE               ,4437.02,1,47.87
+297,ERICA          ,ADAMS               ,28.65,2,0.29
+296,ERICA          ,KANE                ,38.46,1,0.14
+295,LYDIA          ,ROTH                ,39.39,2,0.27
+294,DAVID          ,LANE                ,50.52,2,0.43
+293,EVAN           ,DRYER               ,59.34,1,0.94
+292,PAUL           ,GREGORY             ,59.4,2,0.76
+291,SANDY          ,DRYER               ,68.76,1,1.13
+290,PAUL           ,CONTE               ,85.89,2,0.87
+289,DAVID          ,SHERIDAN            ,89.37,2,0.87
+288,JAMES          ,ROTH                ,105.51,2,0.65
