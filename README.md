@@ -1,6 +1,6 @@
 # Telecom-Data-Analysis-SQL
 
-Wildwest as a telecommunication company needs to increase long distance revenue. By reviewing the documents included background information, key business functions, organization charts as well as 7 mainframe files from theri relational data model, I have used Snowflakes to build a Data Solution to support their long distance message tracking requirements by rebuild thier data model and answering 5 business questions related.
+Wildwest as a telecommunication company needs to increase long distance revenue. By reviewing the documents included background information, key business functions, organization charts as well as 7 mainframe files from theri relational data model, I have used Snowflakes to build a Data Solution to support their long distance message tracking requirements by rebuild thier data model and answering 4 business questions related.
 
 
 ## Question 1 
@@ -248,142 +248,7 @@ UNION ALL
 
 
 
-## Question 3 
-
-Wild West wants a monthly financial summary of all domestic messages by terminating state. They want the total number of messages and revenue for each state and all states. Use January 1999 data for signoff.
-
-<details>
-  <summary>Click to expand answer!</summary>
-
-  ##### Answer
-```sql
-WITH
-    info_9901 AS (
-        SELECT
-            COALESCE(TERM_ST, 'info_total_states'),
-            SUM(REV_AMT) as revenue,
-            COUNT(TERM_ST) as number_of_message
-        FROM
-            BMSG9901
-        WHERE
-            TERM_ST IN (
-                SELECT
-                    state_code
-                FROM
-                    domestic_states
-            )
-        GROUP BY
-            ROLLUP (TERM_ST)
-    ),
-    info_9902 AS (
-        SELECT
-            COALESCE(TERM_ST, 'info_total_states'),
-            SUM(REV_AMT) as revenue,
-            COUNT(TERM_ST) as number_of_message
-        FROM
-            BMSG9902
-        WHERE
-            TERM_ST IN (
-                SELECT
-                    state_code
-                FROM
-                    domestic_states
-            )
-        GROUP BY
-            ROLLUP (TERM_ST)
-    ),
-    info_9903 AS (
-        SELECT
-            COALESCE(TERM_ST, 'info_total_states'),
-            SUM(REV_AMT) as revenue,
-            COUNT(TERM_ST) as number_of_message
-        FROM
-            BMSG9903
-        WHERE
-            TERM_ST IN (
-                SELECT
-                    state_code
-                FROM
-                    domestic_states
-            )
-        GROUP BY
-            ROLLUP (TERM_ST)
-    ),
-    info_9904 AS (
-        SELECT
-            COALESCE(TERM_ST, 'info_total_states'),
-            SUM(REV_AMT) as revenue,
-            COUNT(TERM_ST) as number_of_message
-        FROM
-            BMSG9904
-        WHERE
-            TERM_ST IN (
-                SELECT
-                    state_code
-                FROM
-                    domestic_states
-            )
-        GROUP BY
-            ROLLUP (TERM_ST)
-    ),
-    info_0001 AS (
-        SELECT
-            COALESCE(TERM_ST, 'info_total_states'),
-            SUM(REV_AMT) as revenue,
-            COUNT(TERM_ST) as number_of_message
-        FROM
-            BMSG0001
-        WHERE
-            TERM_ST IN (
-                SELECT
-                    state_code
-                FROM
-                    domestic_states
-            )
-        GROUP BY
-            ROLLUP (TERM_ST)
-    )
-SELECT
-    *
-FROM
-    info_9901
-UNION ALL
-SELECT
-    *
-FROM
-    info_9902
-UNION ALL
-SELECT
-    *
-FROM
-    info_9903
-UNION ALL
-SELECT
-    *
-FROM
-    info_9904
-UNION ALL
-SELECT
-    *
-FROM
-    info_0001
-
-```
-</details>
-</p>
-
-<details>
-  <summary>Click to expand expected results!</summary>
-
-  ##### Expected Results:
-
-
-  </details>
-</p>
-
-
-
-## Question 4
+## Question 3
 
 Wild West wants a switch traffic volume comparisons for international long distance calls. For each switch id, Wild West needs to compare the number of messages and minutes for one month to the same numbers of the following month. To get accurate traffic comparisons, these numbers need to be reported by the CST hour the call was connected. To better do volume planning, they need to also see the percentage change, up of down, in messages and minutes from one month to another for any two given months. Use January and February 1999 data for signoff.
 
@@ -483,7 +348,7 @@ WHERE
 
 
 
-## Question 5
+## Question 4
 Wild West wants to determine which business customers have monthly revenue (for a given month) which exceeds the average per-customer revenue of all business customers for that same month. Use January 1999 data for signoff.
 <details>
   <summary>Click to expand answer!</summary>
